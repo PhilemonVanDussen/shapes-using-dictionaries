@@ -21,6 +21,11 @@ def handle_events():
                 return False
     return True
 
+def draw_text(screen, text, font, text_col, x, y):
+    img = font.render(text, True, text_col)
+    screen.blit(img, (x,y))
+
+
 def main():
     screen = init_game()
     clock = pygame.time.Clock() # Initalize the clock here
@@ -58,16 +63,18 @@ def main():
                 'width': 10
             }
     
-    shapes_list.append(new_shape)
+        shapes_list.append(new_shape)
 
-    for shape in shapes_list:
-        if shape['type'] == 'circle':
-            shapes.draw_circle(screen, shape)
-        elif shape['type'] == 'rectangle':
-            shapes.draw_rect(screen, shape)
-        elif shape['type'] == 'line':
-            shapes.draw_line(screen, shape)
+        for shape in shapes_list:
+            if shape['type'] == 'circle':
+                shapes.draw_circle(screen, shape)
+            elif shape['type'] == 'rectangle':
+                shapes.draw_rect(screen, shape)
+            elif shape['type'] == 'line':
+                shapes.draw_line(screen, shape)
 
+        text_font = pygame.font.Font("Vectroid", 120)
+        draw_text(screen, 'IT\'S ME PJ', text_font, (random.randrange(255),random.randrange(255),random.randrange(255)), 200, 100)
 
         pygame.display.flip()
         # Limit the frame rate to the specified frames per second

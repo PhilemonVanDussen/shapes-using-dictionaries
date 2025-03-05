@@ -73,7 +73,7 @@ def main():
             elif shape['type'] == 'line':
                 shapes.draw_line(screen, shape)
 
-        text_font = pygame.font.Font("Vectroid", 120)
+        text_font = pygame.font.SysFont("Arial", 120)
         draw_text(screen, 'IT\'S ME PJ', text_font, (random.randrange(255),random.randrange(255),random.randrange(255)), 200, 100)
 
         pygame.display.flip()
